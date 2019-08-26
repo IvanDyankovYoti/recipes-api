@@ -2,12 +2,12 @@
 ## Description
 The Recipes API is a NodeJS service, which is responsible for handling recipes data. It has been developed using the Express JS framework.
 
-It keeps the recipes data in a CSV data file and is able to perform GET and PUT (retrieval and update) operations.
+It keeps the recipes data in a CSV file and is able to perform GET and PUT (retrieval and update) operations.
 
 The service uses the following libraries:
-- [normalizr](https://www.npmjs.com/package/normalizr) - this normalises the JSON representation of the read CSV data in order to optimise it for searching (if there was a real data base there would have been no need for this as the data would have been indexed)
+- [normalizr](https://www.npmjs.com/package/normalizr) - this normalises the JSON representation of the read CSV data in order to optimise it for searching (if there was a real data base there would have been no need for this as the records would have been indexed)
 - [csv-parser](https://www.npmjs.com/package/csv-parser) -  read CSV files
-- [csv-writer](https://www.npmjs.com/package/csv-writer) -  writes dta to CSV files
+- [csv-writer](https://www.npmjs.com/package/csv-writer) -  writes to CSV files
 
 ## Requirements
 - Node JS v8.12
@@ -18,7 +18,7 @@ The service uses the following libraries:
 ```sh
 npm start # available on localhost:3000/recipes
 ```
-- Local development (automatically restart server o code change)
+- Local development (automatically restart the server when code change happens)
 ```sh
 $ npm run dev # available on localhost:3000/recipes
 ```
@@ -50,15 +50,15 @@ Exmaple JSON response
 ```
 - If no results have been found the response will be an empty array
 
-
 ### GET /recipes/:id
 
 Example request
 - GET http://<HOST_NAME>/recipes/1
 - Headers: Accpet: "application/json"
 
-Exmaple  JSON response
-200 OK
+<details><summary>Exmaple 200 OK JSON response</summary>
+<p>
+
 ``` JSON
 {
   "id": "1",
@@ -90,6 +90,7 @@ Exmaple  JSON response
 }
 ```
 - Returns 404 when recipe with ID is not found
+</p></details>
 
 ### POST /recipes/:id
 
@@ -104,7 +105,9 @@ Example request
 }
 ```
 
-Example response
+<details><summary>Exmaple 200 OK JSON response</summary>
+<p>
+
 ```JSON
 {
   "id": "1",
@@ -135,13 +138,14 @@ Example response
   "gousto_reference": "59"
 }
 ```
+- Returns 404 when recipe with ID is not found
+</p></details>
 
 ## Improvemets (TODOs)
-- Improve the API doc
+- Improve the API doc (i.e. Swagger Doc)
 - Add a database
 - Validate request body against a schema for the PUT endpoint
-- Produce Swagger Doc
-- Make error API response conform to [RFC_7807](https://tools.ietf.org/html/rfc7807)
+- Make error responses adhere to [RFC_7807](https://tools.ietf.org/html/rfc7807)
 - Implement a POST and DELETE endpoints
 - Unit tests for 500 error responses
-- Unit tests for the untility functions
+- Unit tests for the utility functions
