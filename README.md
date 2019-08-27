@@ -32,6 +32,8 @@ $ npm run lint
 ```
 ## Ednpoints
 
+- Postman collection can be found in the `/postman` folder of this project
+
 ### GET /recipes
 
 Example request
